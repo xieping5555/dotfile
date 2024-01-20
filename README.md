@@ -1,2 +1,3 @@
-# dotfile
-some config file, vim、alacritty、zsh、kitty...etc
+## development enironment initialize script
+
+only for debain

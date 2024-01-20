@@ -99,61 +99,19 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export GO111MODULE=on
-export GOPROXY="https://go-mod-proxy.byted.org,https://proxy.golang.org,direct"
+export GOPROXY="https://goproxy.cn,https://proxy.golang.org,direct"
 export GOPRIVATE="*.byted.org,*.everphoto.cn"
 export GOSUMDB="sum.golang.google.cn"
 
-export GOPATH=/Users/bytedance/go
-export GOROOT=/usr/local/Cellar/go/1.15.15/libexec
+export GOPATH=~/goworkspace
+export GOROOT=~/go
 export GOBIN=$GOROOT/bin
 export PATH=$PATH:$GOBIN
-
-alias updatedb="/usr/libexec/locate.updatedb"
-alias sx="ssh xieping.ekko@10.227.83.218"
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
-
-export PATH=$PATH:/usr/local/vim8/bin
-export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-export PATH=$PATH:/opt/metasploit-framework/bin
-export PATH=$PATH:$GOPATH/bin
-
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
- eval "$(pyenv init -)"
-fi
-
-alias vim="nvim"
-alias exa="exa -al"
-export TERM=screen-256color
-
-eval "$(fasd --init auto)"
-
-export RUSTUP_DIST_SERVER="https://rsproxy.cn"
-export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
-export CONSUL_HTTP_HOST=10.227.83.218
-export RUNTIME_IDC_NAME="boe"
 
 
 alias cs='cd "$(s)"'
 alias vs='$(d -Rl "$1" | fzf -1 -0 --no-sort +m); nvim'
 alias at='alacritty-themes'
-export RUNTIME_UNIT_NAME=cn
 
 eval "$(mcfly init zsh)"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/opt/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/opt/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
+eval "$(fasd --init auto)"
