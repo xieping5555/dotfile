@@ -1,11 +1,5 @@
 #! /bin/bash
-if command -v git >/dev/null 2>&1; then
-    echo "git exists"
-else
-    echo "git not exists, start install"
-
-    sudo apt-get install git
-fi
+sudo apt-get update
 
 if command -v nvim >/dev/null 2>&1; then 
     echo 'nvim exists' 
@@ -13,10 +7,11 @@ else
     echo 'nvim not exist, start build' 
 
     sudo apt-get install ninja-build gettext cmake unzip curl
-    git clone https://github.com/neovim/neovim ~/neovim
+    sodu rm -rf ~/neovim && git clone https://github.com/neovim/neovim ~/neovim
     cd ~/neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
     sudo make install
-    cd -
+    sudo rm -rf ~/.config/nvim && git clone https://github.com/xieping5555/neovim-config.git ~/.config/nvim
+    cd ~
 fi
 
 if comment -v go >/dev/null 2>&1; then
@@ -25,7 +20,7 @@ else
     echo "go not exist, start install"
 
     wget https://dl.google.com/go/go1.19.5.linux-amd64.tar.gz     
-    tar -zxvf go1.19.5.linux-amd64.tar.gz -C ~/go
+    mkdir ~/go1.19.5 && tar -zxvf go1.19.5.linux-amd64.tar.gz -C ~/go1.19.5
 fi
 
 if comment -v tmux >/dev/null 2>&1; then
@@ -62,6 +57,7 @@ else
 fi
 
 echo "create dotfile symbol link"
-ln -s .tmux.conf ~/.tmux.conf
-ln -s .zshrc ~/.zshrc
-ln -s .alacritty.yml ~/.alacritty.yml
+cd ~/dotfile
+ln -s .tmux.conf /root/.tmux.conf
+ln -s .zshrc /root/.zshrc
+ln -s .alacritty.yml /root/.alacritty.yml
