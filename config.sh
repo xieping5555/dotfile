@@ -62,3 +62,5 @@ cd $HOME/dotfile
 ln -s .tmux.conf $HOME/.tmux.conf
 ln -s .zshrc $HOME/.zshrc
 ln -s .alacritty.yml $HOME/.alacritty.yml
+
+source $HOME/.zshrc
