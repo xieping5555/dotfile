@@ -1,6 +1,6 @@
 #! /bin/bash
 sudo apt-get update
-cd $HOME
+echo $HOME && cd $HOME
 
 if command -v nvim >/dev/null 2>&1; then 
     echo 'nvim exists' 
