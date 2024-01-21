@@ -20,8 +20,9 @@ if comment -v go >/dev/null 2>&1; then
 else
     echo "go not exist, start install"
 
-    wget https://dl.google.com/go/go1.19.5.linux-amd64.tar.gz     
-    mkdir $HOME/go1.19.5 && tar -zxvf go1.19.5.linux-amd64.tar.gz -C $HOME/go1.19.5
+    GOVERSION="go1.19.5"
+    wget -P $HOME https://dl.google.com/go/$GOVERSION.linux-amd64.tar.gz
+    mkdir $HOME/$GOVERSION && tar -zxvf go1.19.5.linux-amd64.tar.gz -C $HOME/$GOVERSION
 fi
 
 if comment -v tmux >/dev/null 2>&1; then
@@ -53,8 +54,8 @@ if comment -v mcfly >/dev/null 2>&1; then
 else 
     echo "fasd not exists, start install"
 
-    wget https://raw.githubusercontent.com/cantino/mcfly/master/ci/install.sh
-    sudo sh install.sh -- --git cantino/mcfly
+    sudo wget -P $HOME https://raw.githubusercontent.com/cantino/mcfly/master/ci/install.sh
+    sudo sh $HOME/install.sh -- --git cantino/mcfly
 fi
 
 echo "create dotfile symbol link"
